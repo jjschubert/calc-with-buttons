@@ -24,20 +24,27 @@ app.post('/equations', (req, res) => {
     let equation = req.body;
     let firstNum = Number(equation.firstInput);
     let secondNum = Number(equation.secondInput);
+    let outcome;
+
     if (equation.operator === "+") {
-        let sum = firstNum + secondNum;
-        stringEquation = `${firstNum} + ${secondNum} = ${sum}`;
+        outcome = firstNum + secondNum;
+        stringEquation = `${firstNum} + ${secondNum} = ${outcome}`;
     } else if (equation.operator === "-") {
-        let difference = firstNum - secondNum;
-        stringEquation = `${firstNum} + ${secondNum} = ${difference}`;
+        outcome = firstNum - secondNum;
+        stringEquation = `${firstNum} + ${secondNum} = ${outcome}`;
     } else if (equation.operator === "*") {
-        let product = firstNum * secondNum;
-        stringEquation = `${firstNum} * ${secondNum} = ${product}`;
+        outcome = firstNum * secondNum;
+        stringEquation = `${firstNum} * ${secondNum} = ${outcome}`;
     } else if (equation.operator === "/") {
-        let quotient = firstNum / secondNum;
-        stringEquation = `${firstNum} / ${secondNum} = ${quotient}`;
+        outcome = firstNum / secondNum;
+        stringEquation = `${firstNum} / ${secondNum} = ${outcome}`;
     }
-    equationArray.push(stringEquation);
+    let equationObj = {
+        equationAsString: stringEquation,
+        calcOutcome: outcome,
+    };
+
+    equationArray.push(equationObj);
     res.sendStatus(201);
 });
 

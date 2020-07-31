@@ -10,11 +10,18 @@ function readyNow() {
     $('#minusBtn').on('click', addMinus);
     $('#multBtn').on('click', addMult);
     $('#divBtn').on('click', addDiv);
+    $('#clearBtn').on('click', clearInputs);
     //write get equations and call here
     getEquationList();
 }
 
 console.log('js connected');
+
+function clearInputs() {
+    console.log('clear btn running');
+    $('input').val('');
+    $('#displayCalcOutcome').empty();
+}
 
 function getEquationList() {
     $.ajax({
@@ -22,14 +29,15 @@ function getEquationList() {
         method: 'GET',
     }).then(function (response) {
         $('#displayEquations').empty();
+        $('#displayCalcOutcome').empty();
         console.log(response);
         for (let i = 0; i < response.length; i++) {
-            let row = response[i];
+            // let equation = response[i];
             $('#displayEquations').append(
-                `<li>${row}</li>`
+                `<li>${response[i].equationAsString}</li>`
             );
         }
-        
+        $('#displayCalcOutcome').append(response[response.length-1].calcOutcome);
     })
 }
 
