@@ -23,6 +23,13 @@ function getEquationList() {
     }).then(function (response) {
         $('#displayEquations').empty();
         console.log(response);
+        for (let i = 0; i < response.length; i++) {
+            let row = response[i];
+            $('#displayEquations').append(
+                `<li>${row}</li>`
+            );
+        }
+        
     })
 }
 
@@ -32,7 +39,18 @@ function sendEquation() {
         firstInput: $('#firstNumIn').val(),
         secondInput: $('#secondNumIn').val(),
         operator: operator,
+    } 
+    console.log(equation);
+
+    $.ajax({
+        method: 'POST',
+        url: '/equations',
+        data: equation
+    }).then(function (response) {
+        console.log(response);
+        getEquationList();
     }
+    )
     };
 
  
@@ -43,7 +61,7 @@ function addMinus() {
     operator = "-";
 }
 function addMult() {
-    operator = "x";
+    operator = "*";
 }
 function addDiv() {
     operator = "/";
