@@ -20,7 +20,6 @@ console.log('js connected');
 function clearInputs() {
     console.log('clear btn running');
     $('input').val('');
-    $('#displayCalcOutcome').empty();
 }
 
 function getEquationList() {

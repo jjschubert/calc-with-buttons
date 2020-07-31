@@ -1,9 +1,9 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Server Side Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This project is a basic calculator. Users can input two numbers and select one of four operators. This information is sent to the server as an object, where the the calculation is run. Once the calculation is run, it is added to a new object that contains the full equation as a string, as well as the result of the equation. These are pushed into an array which is then sent back to the client side and displayed -- the outcome right under the inputs, and the strings in a calculation history. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+
