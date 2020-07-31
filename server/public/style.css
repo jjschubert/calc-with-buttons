@@ -1,0 +1,14 @@
+main {
+    margin-left: 10px;
+    font-family: sans-serif;
+    padding: 25px;
+    border:navy solid;
+    width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: darkmagenta;
+    text-align: center;
+    margin-top: 25px;
+}
