@@ -1,6 +1,7 @@
 $(document).ready(readyNow);
 
 let operator;
+let equation = {}
 
 function readyNow() {
     console.log('jq connected');
@@ -10,17 +11,50 @@ function readyNow() {
     $('#minusBtn').on('click', addMinus);
     $('#multBtn').on('click', addMult);
     $('#divBtn').on('click', addDiv);
-    $('#clearBtn').on('click', clearInputs);
+    // $('#clearBtn').on('click', clearInputs);
+    $('#7Btn').on('click', addSeven);
+    $('#8Btn').on('click', addEight);
+    $('#9Btn').on('click', addNine);
     //write get equations and call here
     getEquationList();
 }
 
 console.log('js connected');
 
-function clearInputs() {
-    console.log('clear btn running');
-    $('input').val('');
+function addSeven() {
+    if (equation.hasOwnProperty('firstNum') === false) {
+        equation.firstNum = 7;
+    } else if (equation.hasOwnProperty('firstNum') === true) {
+        equation.secondNum = 7;
+    } else if (equation.hasOwnProperty('secondNum') === true) {
+        return false;
+    } console.log('in addSeven', equation);
 }
+
+function addEight() {
+    if (equation.hasOwnProperty('firstNum') === false) {
+        equation.firstNum = 8;
+    } else if (equation.hasOwnProperty('firstNum') === true) {
+        equation.secondNum = 8;
+    } else if (equation.hasOwnProperty('secondNum') === true) {
+        return false;
+    } console.log('in addEight', equation);
+}
+
+function addNine() {
+    if (equation.hasOwnProperty('firstNum') === false) {
+        equation.firstNum = 9;
+    } else if (equation.hasOwnProperty('firstNum') === true) {
+        equation.secondNum = 9;
+    } else if (equation.hasOwnProperty('secondNum') === true) {
+        return false;
+    } console.log('in addNine', equation);
+}
+
+// function clearInputs() {
+//     console.log('clear btn running');
+//     $('input').val('');
+// }
 
 function getEquationList() {
     $.ajax({
@@ -36,19 +70,12 @@ function getEquationList() {
                 `<li>${response[i].equationAsString}</li>`
             );
         }
-        $('#displayCalcOutcome').append(response[response.length-1].calcOutcome);
+        $('#displayCalcOutcome').append(response[response.length - 1].calcOutcome);
     })
 }
 
 function sendEquation() {
     console.log('in sendEquation');
-    let equation = {
-        firstInput: $('#firstNumIn').val(),
-        secondInput: $('#secondNumIn').val(),
-        operator: operator,
-    } 
-    console.log(equation);
-
     $.ajax({
         method: 'POST',
         url: '/equations',
@@ -58,18 +85,18 @@ function sendEquation() {
         getEquationList();
     }
     )
-    };
+};
 
- 
+
 function addPlus() {
-    operator = "+";
+    equation.operator = "+";
 }
 function addMinus() {
-    operator = "-";
+    equation.operator = "-";
 }
 function addMult() {
-    operator = "*";
+    equation.operator = "*";
 }
 function addDiv() {
-    operator = "/";
+    equation.operator = "/";
 }

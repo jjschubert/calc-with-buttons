@@ -19,19 +19,23 @@ app.get('/equations', function (req, res) {
 )
 
 let stringEquation;
+
+// //object from dom example - 
+// firstNum: 8
+// operator: "+"
+// secondNum: 7
 //POST
 app.post('/equations', (req, res) => {
     let equation = req.body;
-    let firstNum = Number(equation.firstInput);
-    let secondNum = Number(equation.secondInput);
     let outcome;
-
+    let firstNum = Number(equation.firstNum);
+    let secondNum = Number(equation.secondNum);
     if (equation.operator === "+") {
         outcome = firstNum + secondNum;
         stringEquation = `${firstNum} + ${secondNum} = ${outcome}`;
     } else if (equation.operator === "-") {
         outcome = firstNum - secondNum;
-        stringEquation = `${firstNum} + ${secondNum} = ${outcome}`;
+        stringEquation = `${firstNum} - ${secondNum} = ${outcome}`;
     } else if (equation.operator === "*") {
         outcome = firstNum * secondNum;
         stringEquation = `${firstNum} * ${secondNum} = ${outcome}`;
