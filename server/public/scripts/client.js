@@ -70,19 +70,19 @@ function sendEquation() {
 
 function addPlus() {
     equation.operator = "+";
-    $('#numIn').val($('#numIn').val() + '\+');
+    $('#numIn').val($('#numIn').val() + '+');
 }
 function addMinus() {
     equation.operator = "-";
-    $('#numIn').val($('#numIn').val() + '\-');
+    $('#numIn').val($('#numIn').val() + '-');
 }
 function addMult() {
     equation.operator = "*";
-    $('#numIn').val($('#numIn').val() + '\*');
+    $('#numIn').val($('#numIn').val() + '*');
 }
 function addDiv() {
     equation.operator = "/";
-    $('#numIn').val($('#numIn').val() + '\/');
+    $('#numIn').val($('#numIn').val() + '/');
 }
 
 function addSeven() {
@@ -127,7 +127,7 @@ function addSix() {
 
 function addDecimal() {
     console.log('in addDecimal')
-    $('#numIn').val($('#numIn').val() + ".\\");
+    $('#numIn').val($('#numIn').val() + ".");
 }
 
 // old functionality ex -- bypassed input, limited to single digits

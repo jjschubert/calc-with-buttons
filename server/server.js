@@ -27,8 +27,8 @@ let stringEquation;
 
 // /test code for server logic
 // let str = "8+2"
-// let first = str.split("+").pop();
-// let second = str.split("+").shift();
+// let second = str.split("+").pop();
+// let first = str.split("+").shift();
 // console.log(str)
 // console.log(first);
 // console.log(second);
@@ -40,22 +40,29 @@ app.post('/equations', (req, res) => {
   
     //in each condition, remove operator, set remaining string to Number, then secondNum;
     if (equation.operator === "+") {
-        let firstNum = Number(equationString.split("+").pop());
-        let secondNum = Number(equationString.split("+").shift());
+        let secondNum = Number(equationString.split("+").pop());
+        let firstNum = Number(equationString.split("+").shift());
         outcome = firstNum + secondNum;
         stringEquation = `${firstNum} + ${secondNum} = ${outcome}`
     } else if (equation.operator === "-") {
+        let secondNum = Number(equationString.split("-").pop());
+        let firstNum = Number(equationString.split("-").shift());
         outcome = firstNum - secondNum;
+        stringEquation = `${firstNum} - ${secondNum} = ${outcome}`
     } else if (equation.operator === "*") {
+        let secondNum = Number(equationString.split("*").pop());
+        let firstNum = Number(equationString.split("*").shift());
         outcome = firstNum * secondNum;
         stringEquation = `${firstNum} * ${secondNum} = ${outcome}`;
     } else if (equation.operator === "/") {
+        let secondNum = Number(equationString.split("/").pop());
+        let firstNum = Number(equationString.split("/").shift());
         outcome = firstNum / secondNum;
         stringEquation = `${firstNum} / ${secondNum} = ${outcome}`;
     }
-    let equationObj = { //double check and see if this can be simplified now
-        equationAsString: stringEquation, //printing undefined
-        calcOutcome: outcome, //working
+    let equationObj = { 
+        equationAsString: stringEquation, 
+        calcOutcome: outcome, 
     };
 
     equationArray.push(equationObj);
