@@ -1,6 +1,6 @@
 # Project Name
 
-Server Side Calculator
+Server Side Calculator With Button inputs
 
 ## Description
 
