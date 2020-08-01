@@ -35,7 +35,7 @@ function clearInputs() {
     $('input').val('');
 }
 
-function getEquationList() { //this will need to be re-written for new array
+function getEquationList() { 
     $.ajax({
         url: '/equations',
         method: 'GET',
@@ -63,6 +63,7 @@ function sendEquation() {
     }).then(function (response) {
         console.log(response);
         getEquationList();
+        clearInputs();
     }
     )
 };
