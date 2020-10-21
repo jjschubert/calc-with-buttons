@@ -8,7 +8,7 @@ This project is a basic calculator with a button focused user interface and the 
 
 ## Screenshot
 
-![calc]("/images/calc_img.png)
+![calc]("./images/calc_img.png)
 
 ## Built With
 
