@@ -35,7 +35,7 @@ function clearInputs() {
     $('input').val('');
 }
 
-function getEquationList() { 
+function getEquationList() {
     $.ajax({
         url: '/equations',
         method: 'GET',
@@ -55,7 +55,7 @@ function getEquationList() {
 
 function sendEquation() {
     console.log('in sendEquation');
-    equation.fullString = $('#numIn').val(); 
+    equation.fullString = $('#numIn').val();
     $.ajax({
         method: 'POST',
         url: '/equations',

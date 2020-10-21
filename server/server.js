@@ -37,7 +37,7 @@ app.post('/equations', (req, res) => {
     let equation = req.body;
     let outcome;
     let equationString = equation.fullString;
-  
+
     //in each condition, remove operator, set remaining string to Number, then secondNum;
     if (equation.operator === "+") {
         let secondNum = Number(equationString.split("+").pop());
@@ -60,9 +60,9 @@ app.post('/equations', (req, res) => {
         outcome = firstNum / secondNum;
         stringEquation = `${firstNum} / ${secondNum} = ${outcome}`;
     }
-    let equationObj = { 
-        equationAsString: stringEquation, 
-        calcOutcome: outcome, 
+    let equationObj = {
+        equationAsString: stringEquation,
+        calcOutcome: outcome,
     };
 
     equationArray.push(equationObj);
@@ -72,4 +72,4 @@ app.post('/equations', (req, res) => {
 //listener
 app.listen(PORT, () => {
     console.log('Server is running on port', PORT)
-  });
+});
